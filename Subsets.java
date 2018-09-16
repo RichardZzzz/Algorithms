@@ -10,10 +10,13 @@ class Solution {
     }
 
     private void backTrack(List<List<Integer>> list, ArrayList<Integer> temp, int[] nums, int start){
+        // add current temp into list
         list.add(new ArrayList(temp));
         for(int i=start; i<nums.length; i++){
+            // add next element to temp
             temp.add(nums[i]);
             backTrack(list, temp, nums, i+1);
+            // remove last element from temp
             temp.remove(temp.size()-1);
         }
     }
